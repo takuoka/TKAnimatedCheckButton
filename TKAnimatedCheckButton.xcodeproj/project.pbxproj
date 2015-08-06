@@ -13,6 +13,7 @@
 		B0A4CF621B72F1A800850A70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A4CF611B72F1A800850A70 /* Images.xcassets */; };
 		B0A4CF651B72F1A800850A70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A4CF631B72F1A800850A70 /* LaunchScreen.xib */; };
 		B0A4CF711B72F1A800850A70 /* TKAnimatedCheckButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4CF701B72F1A800850A70 /* TKAnimatedCheckButtonTests.swift */; };
+		B0A4CF7C1B72F1DB00850A70 /* TKAnimatedCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4CF7B1B72F1DB00850A70 /* TKAnimatedCheckButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		B0A4CF6A1B72F1A800850A70 /* TKAnimatedCheckButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TKAnimatedCheckButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A4CF6F1B72F1A800850A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0A4CF701B72F1A800850A70 /* TKAnimatedCheckButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TKAnimatedCheckButtonTests.swift; sourceTree = "<group>"; };
+		B0A4CF7B1B72F1DB00850A70 /* TKAnimatedCheckButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKAnimatedCheckButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		B0A4CF571B72F1A800850A70 /* TKAnimatedCheckButton */ = {
 			isa = PBXGroup;
 			children = (
+				B0A4CF7A1B72F1CF00850A70 /* Classes */,
 				B0A4CF5A1B72F1A800850A70 /* AppDelegate.swift */,
 				B0A4CF5C1B72F1A800850A70 /* ViewController.swift */,
 				B0A4CF5E1B72F1A800850A70 /* Main.storyboard */,
@@ -110,6 +113,14 @@
 				B0A4CF6F1B72F1A800850A70 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B0A4CF7A1B72F1CF00850A70 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B0A4CF7B1B72F1DB00850A70 /* TKAnimatedCheckButton.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A4CF7C1B72F1DB00850A70 /* TKAnimatedCheckButton.swift in Sources */,
 				B0A4CF5D1B72F1A800850A70 /* ViewController.swift in Sources */,
 				B0A4CF5B1B72F1A800850A70 /* AppDelegate.swift in Sources */,
 			);
