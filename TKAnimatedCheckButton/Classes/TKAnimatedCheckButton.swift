@@ -35,13 +35,13 @@ class TKAnimatedCheckButton : UIButton {
     
     let pathSize:CGFloat = 70
     
-    let circleStrokeStart: CGFloat = 0.0//0.028
-    let circleStrokeEnd: CGFloat = 0.738//0.111
+    let circleStrokeStart: CGFloat = 0.0
+    let circleStrokeEnd: CGFloat = 0.738
     
     let checkStrokeStart: CGFloat = 0.8
     let checkStrokeEnd: CGFloat = 0.97
     
-    let opacity:CGFloat = 0.4//0.15が近い
+    let opacity:CGFloat = 0.4
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
