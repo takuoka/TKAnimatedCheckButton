@@ -23,7 +23,7 @@ public class TKAnimatedCheckButton : UIButton {
             self.shape.strokeColor = color
         }
     }
-    public var skeltonColor = UIColor.whiteColor().colorWithAlphaComponent(0.4).CGColor {
+    public var skeltonColor = UIColor.whiteColor().colorWithAlphaComponent(0.25).CGColor {
         didSet {
             circle.strokeColor = skeltonColor
             check.strokeColor = skeltonColor
@@ -56,6 +56,8 @@ public class TKAnimatedCheckButton : UIButton {
     var circle: CAShapeLayer! = CAShapeLayer()
     var check: CAShapeLayer! = CAShapeLayer()
     
+    let lineWidth:CGFloat = 4
+    let lineWidthBold:CGFloat = 5
     
     public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -93,9 +95,12 @@ public class TKAnimatedCheckButton : UIButton {
         self.check.strokeStart = checkStrokeStart
         self.check.strokeEnd = checkStrokeEnd
 
+        shape.lineWidth = lineWidth
+        circle.lineWidth = lineWidth
+        check.lineWidth = lineWidthBold
+        
         for layer in [ circle, check, self.shape ] {
             layer.fillColor = nil
-            layer.lineWidth = 4
             layer.miterLimit = 4
             layer.lineCap = kCALineCapRound
             layer.masksToBounds = true
@@ -113,33 +118,45 @@ public class TKAnimatedCheckButton : UIButton {
         self.frame.origin = defaultPoint
     }
 
-    let timingFunc = CAMediaTimingFunction(controlPoints: 0.69,0.12,0.23,1.27)
+    let timingFunc = CAMediaTimingFunction(controlPoints: 0.44,-0.04,0.64,1.4)//0.69,0.12,0.23,1.27)
+    let backFunc = CAMediaTimingFunction(controlPoints: 0.45,-0.36,0.44,0.92)
 
     public var checked: Bool = false {
         didSet {
             let strokeStart = CABasicAnimation(keyPath: "strokeStart")
             let strokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+            let lineWidthAnim = CABasicAnimation(keyPath: "lineWidth")
             if self.checked {
                 strokeStart.toValue = checkStrokeStart
-                strokeStart.duration = 0.5
+                strokeStart.duration = 0.3//0.5
                 strokeStart.timingFunction = timingFunc
                 
                 strokeEnd.toValue = checkStrokeEnd
-                strokeEnd.duration = 0.6
+                strokeEnd.duration = 0.3//0.6
                 strokeEnd.timingFunction = timingFunc
+                
+                lineWidthAnim.toValue = lineWidthBold
+                lineWidthAnim.beginTime = 0.2
+                lineWidthAnim.duration = 0.1
+                lineWidthAnim.timingFunction = timingFunc
             } else {
                 strokeStart.toValue = circleStrokeStart
-                strokeStart.duration = 0.5
-                strokeStart.timingFunction = CAMediaTimingFunction(controlPoints: 0.25, 0, 0.5, 1.2)
-                strokeStart.beginTime = CACurrentMediaTime() + 0.1
+                strokeStart.duration = 0.2//0.5
+                strokeStart.timingFunction = backFunc//CAMediaTimingFunction(controlPoints: 0.25, 0, 0.5, 1.2)
+//                strokeStart.beginTime = CACurrentMediaTime() + 0.1
                 strokeStart.fillMode = kCAFillModeBackwards
                 
                 strokeEnd.toValue = circleStrokeEnd
-                strokeEnd.duration = 0.6
-                strokeEnd.timingFunction = CAMediaTimingFunction(controlPoints: 0.25, 0.3, 0.5, 0.9)
+                strokeEnd.duration = 0.3//0.6
+                strokeEnd.timingFunction = backFunc//CAMediaTimingFunction(controlPoints: 0.25, 0.3, 0.5, 0.9)
+
+                lineWidthAnim.toValue = lineWidth
+                lineWidthAnim.duration = 0.1
+                lineWidthAnim.timingFunction = backFunc
             }
             self.shape.ocb_applyAnimation(strokeStart)
             self.shape.ocb_applyAnimation(strokeEnd)
+            self.shape.ocb_applyAnimation(lineWidthAnim)
         }
     }
 }
