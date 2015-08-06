@@ -49,8 +49,7 @@ class TKAnimatedCheckButton : UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        println(self.frame)
+
         let defaultPoint = self.frame.origin
         
         var size = frame.width
@@ -99,10 +98,7 @@ class TKAnimatedCheckButton : UIButton {
             self.layer.transform = CATransform3DMakeScale(scale, scale, 1);
             self.layer.addSublayer(layer)
         }
-        println(self.frame)
         self.frame.origin = defaultPoint
-        println(self.frame)
-
     }
     
     var checked: Bool = false {
