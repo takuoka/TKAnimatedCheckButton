@@ -31,7 +31,7 @@ class TKAnimatedCheckButton : UIButton {
         CGPathAddLineToPoint(p, nil, 29.9939289,43.1625671)
         CGPathAddLineToPoint(p, nil, 56.7161293,17.3530369)
         return p
-        }()
+    }()
     
     let circleStrokeStart: CGFloat = 0.0//0.028
     let circleStrokeEnd: CGFloat = 0.738//0.111
@@ -64,7 +64,7 @@ class TKAnimatedCheckButton : UIButton {
             layer.miterLimit = 4
             layer.lineCap = kCALineCapRound
             layer.masksToBounds = true
-            // boundsをとるためにコピー？
+
             let strokingPath:CGPath = CGPathCreateCopyByStrokingPath(layer.path, nil, 4, kCGLineCapRound, kCGLineJoinMiter, 4)
             layer.bounds = CGPathGetPathBoundingBox(strokingPath)
             layer.actions = [
@@ -90,7 +90,6 @@ class TKAnimatedCheckButton : UIButton {
     var checked: Bool = false {
         didSet {
             let timingFunc = CAMediaTimingFunction(controlPoints: 0.69,0.12,0.23,1.27)
-            // マルのPath上の描画地点をアニメーションさせる  keyPathはアニメーションするプロパティ
             let strokeStart = CABasicAnimation(keyPath: "strokeStart")
             let strokeEnd = CABasicAnimation(keyPath: "strokeEnd")
             if self.checked {
