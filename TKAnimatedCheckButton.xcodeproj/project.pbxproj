@@ -11,9 +11,10 @@
 		B0A4CF5D1B72F1A800850A70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4CF5C1B72F1A800850A70 /* ViewController.swift */; };
 		B0A4CF601B72F1A800850A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A4CF5E1B72F1A800850A70 /* Main.storyboard */; };
 		B0A4CF621B72F1A800850A70 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A4CF611B72F1A800850A70 /* Images.xcassets */; };
-		B0A4CF651B72F1A800850A70 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A4CF631B72F1A800850A70 /* LaunchScreen.xib */; };
 		B0A4CF711B72F1A800850A70 /* TKAnimatedCheckButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4CF701B72F1A800850A70 /* TKAnimatedCheckButtonTests.swift */; };
 		B0A4CF7C1B72F1DB00850A70 /* TKAnimatedCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4CF7B1B72F1DB00850A70 /* TKAnimatedCheckButton.swift */; };
+		B0FAC84D1B732E6A0034E00B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A4CF5E1B72F1A800850A70 /* Main.storyboard */; };
+		B0FAC84E1B732E6D0034E00B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A4CF631B72F1A800850A70 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,8 +204,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A4CF601B72F1A800850A70 /* Main.storyboard in Resources */,
-				B0A4CF651B72F1A800850A70 /* LaunchScreen.xib in Resources */,
+				B0FAC84E1B732E6D0034E00B /* LaunchScreen.xib in Resources */,
+				B0FAC84D1B732E6A0034E00B /* Main.storyboard in Resources */,
 				B0A4CF621B72F1A800850A70 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +424,7 @@
 				B0A4CF761B72F1A800850A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B0A4CF771B72F1A800850A70 /* Build configuration list for PBXNativeTarget "TKAnimatedCheckButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +433,7 @@
 				B0A4CF791B72F1A800850A70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
