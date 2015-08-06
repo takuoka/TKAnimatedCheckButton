@@ -14,7 +14,7 @@ http://robb.is/working-on/a-hamburger-button-transition/
 ## This is SubClass of UIButton
 
 ``` swift
-self.button = TKAnimatedCheckButton(frame: CGRectMake(133, 133, 54, 54))
+self.button = TKAnimatedCheckButton(frame: CGRectMake(0, 0, 44, 44))
 ```
 
 ## How to toggle
@@ -22,4 +22,9 @@ self.button = TKAnimatedCheckButton(frame: CGRectMake(133, 133, 54, 54))
 func toggle() {
   self.button.checked = !self.button.checked
 }
+```
+## Custom Color
+``` swift
+self.button.color = UIColor.redColor().CGColor
+self.button.skeltonColor = UIColor.blueColor().CGColor
 ```
