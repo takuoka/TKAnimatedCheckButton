@@ -16,9 +16,20 @@ import QuartzCore
 import UIKit
 
 
-class TKAnimatedCheckButton : UIButton {
+public class TKAnimatedCheckButton : UIButton {
     
-    var shape: CAShapeLayer! = CAShapeLayer()
+    public var color = UIColor.whiteColor().CGColor {
+        didSet {
+            self.shape.strokeColor = color
+        }
+    }
+    public var skeltonColor = UIColor.whiteColor().colorWithAlphaComponent(0.4).CGColor {
+        didSet {
+            circle.strokeColor = skeltonColor
+            check.strokeColor = skeltonColor
+        }
+    }
+
     
     let path: CGPath = {
         let p = CGPathCreateMutable()
@@ -32,22 +43,25 @@ class TKAnimatedCheckButton : UIButton {
         CGPathAddLineToPoint(p, nil, 56.7161293,17.3530369)
         return p
     }()
-    
     let pathSize:CGFloat = 70
-    
+
     let circleStrokeStart: CGFloat = 0.0
     let circleStrokeEnd: CGFloat = 0.738
     
     let checkStrokeStart: CGFloat = 0.8
     let checkStrokeEnd: CGFloat = 0.97
+
+
+    var shape: CAShapeLayer! = CAShapeLayer()
+    var circle: CAShapeLayer! = CAShapeLayer()
+    var check: CAShapeLayer! = CAShapeLayer()
     
-    let opacity:CGFloat = 0.4
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
 
         let defaultPoint = self.frame.origin
@@ -61,27 +75,25 @@ class TKAnimatedCheckButton : UIButton {
         self.frame.size = CGSize(width: pathSize, height: pathSize)
         
         self.shape.path = path
-        let circle = CAShapeLayer()
-        circle.path = path
-        let check = CAShapeLayer()
-        check.path = path
+        self.circle.path = path
+        self.check.path = path
         
-        self.shape.strokeColor = UIColor.whiteColor().CGColor
-        circle.strokeColor = UIColor.whiteColor().colorWithAlphaComponent(opacity).CGColor
-        check.strokeColor = circle.strokeColor
+        self.shape.strokeColor = color
+        self.circle.strokeColor = skeltonColor
+        self.check.strokeColor = skeltonColor
 
         self.shape.position = CGPointMake(pathSize/2, pathSize/2)
-        circle.position = self.shape.position
-        check.position = self.shape.position
+        self.circle.position = self.shape.position
+        self.check.position = self.shape.position
 
         self.shape.strokeStart = circleStrokeStart
         self.shape.strokeEnd = circleStrokeEnd
-        circle.strokeStart = circleStrokeStart
-        circle.strokeEnd = circleStrokeEnd
-        check.strokeStart = checkStrokeStart
-        check.strokeEnd = checkStrokeEnd
+        self.circle.strokeStart = circleStrokeStart
+        self.circle.strokeEnd = circleStrokeEnd
+        self.check.strokeStart = checkStrokeStart
+        self.check.strokeEnd = checkStrokeEnd
 
-        for layer in [ self.shape, circle, check] {
+        for layer in [ circle, check, self.shape ] {
             layer.fillColor = nil
             layer.lineWidth = 4
             layer.miterLimit = 4
@@ -100,10 +112,11 @@ class TKAnimatedCheckButton : UIButton {
         }
         self.frame.origin = defaultPoint
     }
-    
-    var checked: Bool = false {
+
+    let timingFunc = CAMediaTimingFunction(controlPoints: 0.69,0.12,0.23,1.27)
+
+    public var checked: Bool = false {
         didSet {
-            let timingFunc = CAMediaTimingFunction(controlPoints: 0.69,0.12,0.23,1.27)
             let strokeStart = CABasicAnimation(keyPath: "strokeStart")
             let strokeEnd = CABasicAnimation(keyPath: "strokeEnd")
             if self.checked {

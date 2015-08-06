@@ -19,6 +19,9 @@ class ViewController: UIViewController {
         self.button.center = self.view.center
         self.button.addTarget(self, action: "toggle:", forControlEvents:.TouchUpInside)
         self.view.addSubview(button)
+        
+//        self.button.color = UIColor.redColor().CGColor
+//        self.button.skeltonColor = UIColor.blueColor().CGColor
     }
     func toggle(sender: AnyObject!) {
         self.button.checked = !self.button.checked
