@@ -33,6 +33,8 @@ class TKAnimatedCheckButton : UIButton {
         return p
     }()
     
+    let pathSize:CGFloat = 70
+    
     let circleStrokeStart: CGFloat = 0.0//0.028
     let circleStrokeEnd: CGFloat = 0.738//0.111
     
@@ -48,6 +50,17 @@ class TKAnimatedCheckButton : UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        println(self.frame)
+        let defaultPoint = self.frame.origin
+        
+        var size = frame.width
+        if frame.width < frame.height {
+            size = frame.height
+        }
+        let scale:CGFloat = size / pathSize
+
+        self.frame.size = CGSize(width: pathSize, height: pathSize)
+        
         self.shape.path = path
         let circle = CAShapeLayer()
         circle.path = path
@@ -57,7 +70,18 @@ class TKAnimatedCheckButton : UIButton {
         self.shape.strokeColor = UIColor.whiteColor().CGColor
         circle.strokeColor = UIColor.whiteColor().colorWithAlphaComponent(opacity).CGColor
         check.strokeColor = circle.strokeColor
-        
+
+        self.shape.position = CGPointMake(pathSize/2, pathSize/2)
+        circle.position = self.shape.position
+        check.position = self.shape.position
+
+        self.shape.strokeStart = circleStrokeStart
+        self.shape.strokeEnd = circleStrokeEnd
+        circle.strokeStart = circleStrokeStart
+        circle.strokeEnd = circleStrokeEnd
+        check.strokeStart = checkStrokeStart
+        check.strokeEnd = checkStrokeEnd
+
         for layer in [ self.shape, circle, check] {
             layer.fillColor = nil
             layer.lineWidth = 4
@@ -72,19 +96,13 @@ class TKAnimatedCheckButton : UIButton {
                 "strokeEnd": NSNull(),
                 "transform": NSNull()
             ]
+            self.layer.transform = CATransform3DMakeScale(scale, scale, 1);
             self.layer.addSublayer(layer)
         }
-        
-        self.shape.position = CGPointMake(27, 27)
-        circle.position = self.shape.position
-        check.position = self.shape.position
-        
-        self.shape.strokeStart = circleStrokeStart
-        self.shape.strokeEnd = circleStrokeEnd
-        circle.strokeStart = circleStrokeStart
-        circle.strokeEnd = circleStrokeEnd
-        check.strokeStart = checkStrokeStart
-        check.strokeEnd = checkStrokeEnd
+        println(self.frame)
+        self.frame.origin = defaultPoint
+        println(self.frame)
+
     }
     
     var checked: Bool = false {

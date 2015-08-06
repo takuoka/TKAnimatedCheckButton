@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 0.176471, green: 0.701961, blue: 0.203922, alpha: 1)
         
-        self.button = TKAnimatedCheckButton(frame: CGRectMake(133, 133, 54, 54))
+        self.button = TKAnimatedCheckButton(frame: CGRectMake(0, 0, 70, 70))
+        self.button.center = self.view.center
         self.button.addTarget(self, action: "toggle:", forControlEvents:.TouchUpInside)
         self.view.addSubview(button)
     }
