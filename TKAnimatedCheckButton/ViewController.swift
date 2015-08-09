@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         self.view.addSubview(button)
         
         //self.button.color = UIColor.redColor().CGColor
-        //self.button.skeltonColor = UIColor.blueColor().CGColor
+        //self.button.skeletonColor = UIColor.blueColor().CGColor
     }
     func toggle(sender: AnyObject!) {
         self.button.checked = !self.button.checked

@@ -41,5 +41,5 @@ func toggle() {
 ## Custom Color
 ``` swift
 self.button.color = UIColor.redColor().CGColor
-self.button.skeltonColor = UIColor.blueColor().CGColor
+self.button.skeletonColor = UIColor.blueColor().CGColor
 ```
