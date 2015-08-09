@@ -23,10 +23,10 @@ public class TKAnimatedCheckButton : UIButton {
             self.shape.strokeColor = color
         }
     }
-    public var skeltonColor = UIColor.whiteColor().colorWithAlphaComponent(0.25).CGColor {
+    public var skeletonColor = UIColor.whiteColor().colorWithAlphaComponent(0.25).CGColor {
         didSet {
-            circle.strokeColor = skeltonColor
-            check.strokeColor = skeltonColor
+            circle.strokeColor = skeletonColor
+            check.strokeColor = skeletonColor
         }
     }
 
@@ -81,8 +81,8 @@ public class TKAnimatedCheckButton : UIButton {
         self.check.path = path
         
         self.shape.strokeColor = color
-        self.circle.strokeColor = skeltonColor
-        self.check.strokeColor = skeltonColor
+        self.circle.strokeColor = skeletonColor
+        self.check.strokeColor = skeletonColor
 
         self.shape.position = CGPointMake(pathSize/2, pathSize/2)
         self.circle.position = self.shape.position
