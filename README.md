@@ -20,8 +20,9 @@ http://robb.is/working-on/a-hamburger-button-transition/
 
 
 # Installation
-  pod 'TKAnimatedCheckButton'
-
+```
+pod 'TKAnimatedCheckButton'
+```
 
 # Usage
 
