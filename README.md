@@ -18,6 +18,11 @@ http://robb.is/working-on/a-hamburger-button-transition/
 
 ![Demo GIF Animation](https://raw.githubusercontent.com/entotsu/TKAnimatedCheckButton/master/demo.gif "Demo GIF Animation")
 
+
+# Installation
+  pod 'TKAnimatedCheckButton'
+
+
 # Usage
 
 ## This is SubClass of UIButton
