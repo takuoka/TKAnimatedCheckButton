@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TKAnimatedCheckButton"
-  s.version      = "0.1"
+  s.version      = "0.2"
   s.summary      = "Elastic Animated Check Box inpired by https://dribbble.com/shots/1631598-On-Off and http://robb.is/working-on/a-hamburger-button-transition/"
 
 
@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/entotsu/TKAnimatedCheckButton.git", :tag => "0.1" }
+  s.source       = { :git => "https://github.com/entotsu/TKAnimatedCheckButton.git", :tag => "0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
