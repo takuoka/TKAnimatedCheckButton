@@ -10,7 +10,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/TKAnimatedCheckButton.svg)]()
 
 
-Elastic Animated Check Box inpired by
+Elastic Animated Check Box inspired by
 https://dribbble.com/shots/1631598-On-Off
 and
 http://robb.is/working-on/a-hamburger-button-transition/
