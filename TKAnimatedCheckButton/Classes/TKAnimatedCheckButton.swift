@@ -20,7 +20,7 @@ public class TKAnimatedCheckButton : UIButton {
     
     public var color = UIColor.whiteColor().CGColor {
         didSet {
-            self.shape.strokeColor = color
+            shape.strokeColor = color
         }
     }
     public var skeletonColor = UIColor.whiteColor().colorWithAlphaComponent(0.25).CGColor {
@@ -126,7 +126,7 @@ public class TKAnimatedCheckButton : UIButton {
             let strokeStart = CABasicAnimation(keyPath: "strokeStart")
             let strokeEnd = CABasicAnimation(keyPath: "strokeEnd")
             let lineWidthAnim = CABasicAnimation(keyPath: "lineWidth")
-            if self.checked {
+            if checked {
                 strokeStart.toValue = checkStrokeStart
                 strokeStart.duration = 0.3//0.5
                 strokeStart.timingFunction = timingFunc
@@ -154,9 +154,9 @@ public class TKAnimatedCheckButton : UIButton {
                 lineWidthAnim.duration = 0.1
                 lineWidthAnim.timingFunction = backFunc
             }
-            self.shape.ocb_applyAnimation(strokeStart)
-            self.shape.ocb_applyAnimation(strokeEnd)
-            self.shape.ocb_applyAnimation(lineWidthAnim)
+            shape.ocb_applyAnimation(strokeStart)
+            shape.ocb_applyAnimation(strokeEnd)
+            shape.ocb_applyAnimation(lineWidthAnim)
         }
     }
 }
@@ -165,9 +165,9 @@ extension CALayer {
     func ocb_applyAnimation(animation: CABasicAnimation) {
         let copy = animation.copy() as! CABasicAnimation
         if copy.fromValue == nil {
-            copy.fromValue = self.presentationLayer().valueForKeyPath(copy.keyPath)
+            copy.fromValue = presentationLayer().valueForKeyPath(copy.keyPath)
         }
-        self.addAnimation(copy, forKey: copy.keyPath)
-        self.setValue(copy.toValue, forKeyPath:copy.keyPath)
+        addAnimation(copy, forKey: copy.keyPath)
+        setValue(copy.toValue, forKeyPath:copy.keyPath)
     }
 }
