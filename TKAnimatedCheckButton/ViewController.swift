@@ -13,18 +13,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 0.176471, green: 0.701961, blue: 0.203922, alpha: 1)
+        view.backgroundColor = UIColor(red: 0.176471, green: 0.701961, blue: 0.203922, alpha: 1)
         
-        self.button = TKAnimatedCheckButton(frame: CGRectMake(0, 0, 70, 70))
-        self.button.center = self.view.center
-        self.button.addTarget(self, action: "toggle:", forControlEvents:.TouchUpInside)
-        self.view.addSubview(button)
+        button = TKAnimatedCheckButton(frame: CGRectMake(0, 0, 70, 70))
+        button.center = view.center
+        button.addTarget(self, action: "toggle:", forControlEvents:.TouchUpInside)
+        view.addSubview(button)
         
-        //self.button.color = UIColor.redColor().CGColor
-        //self.button.skeletonColor = UIColor.blueColor().CGColor
+        //button.color = UIColor.redColor().CGColor
+        //button.skeletonColor = UIColor.blueColor().CGColor
     }
     func toggle(sender: AnyObject!) {
-        self.button.checked = !self.button.checked
+        button.checked = !button.checked
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle  {
